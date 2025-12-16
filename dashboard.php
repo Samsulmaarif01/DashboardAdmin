@@ -6,12 +6,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$cards = [
-    ['icon' => 'fas fa-users',        'title' => 'Users',   'value' => '1,234'],
-    ['icon' => 'fas fa-dollar-sign',  'title' => 'Revenue', 'value' => '$45,678'],
-    ['icon' => 'fas fa-box',          'title' => 'Orders',  'value' => '567'],
-    ['icon' => 'fas fa-chart-line',   'title' => 'Growth',  'value' => '+23%']
-];
+$stmt = $conn->query("SELECT title, value FROM dashboard_cards");
+$cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
