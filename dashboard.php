@@ -9,6 +9,14 @@ if (!isset($_SESSION['user_id'])) {
 $stmt = $conn->query("SELECT title, value FROM dashboard_cards");
 $cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$iconMap = [
+    'Users'   => 'fas fa-users',
+    'Revenue' => 'fas fa-dollar-sign',
+    'Orders'  => 'fas fa-box',
+    'Growth'  => 'fas fa-chart-line'
+];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -74,10 +82,10 @@ nav{
 <?php foreach ($cards as $c): ?>
     <div class="card">
         <div class="icon">
-            <i class="<?= $c['icon'] ?>"></i>
+           <i class="<?= $iconMap[$c['title']] ?? 'fas fa-circle' ?>"></i>
         </div>
-        <div><?= $c['title'] ?></div>
-        <div class="value"><?= $c['value'] ?></div>
+        <div><?= htmlspecialchars($c['title']) ?></div>
+        <div class="value"><?= htmlspecialchars($c['value']) ?></div>
     </div>
 <?php endforeach; ?>
 </div>
