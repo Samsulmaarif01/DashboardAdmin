@@ -15,4 +15,4 @@ Menyesuaikan struktur tampilan agar sesuai dengan data database.
 Variabel icon diganti menjadi `$iconMap[$c['title']]` sesuai iterasi, dan ditambahkan `htmlspecialchars()` untuk keamanan.
 
 ![Fix Icon Card](images/Dashboard_fix.png)
-![Fix Icon Card Detail](images/imagesfix.png)
+![Fix Icon Card Detail](images/imagefix.png)
